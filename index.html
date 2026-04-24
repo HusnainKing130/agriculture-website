@@ -1,0 +1,3358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriCo Header</title>
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* HERO BACKGROUND */
+body{
+    background: url('')  no-repeat center/cover;
+    height:100vh;
+}
+
+/* HEADER WRAPPER (spacing from edges) */
+.header-wrapper{
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    z-index:1000;
+}
+
+/* HEADER BOX */
+.header{
+    width:90%;
+    max-width:1200px;
+    padding:15px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius:12px;
+
+    transition:0.4s ease;
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo img{
+    width:40px;
+}
+
+.logo span{
+    letter-spacing:2px;
+}
+
+/* NAV CENTER */
+.nav{
+    display:flex;
+    gap:30px;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    position:relative;
+    transition:0.3s;
+}
+
+/* ANIMATION underline */
+.nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:white;
+    transition:0.3s;
+}
+
+.nav a:hover::after{
+    width:100%;
+}
+
+/* RIGHT BUTTON */
+.contact-btn{
+    background:white;
+    color:black;
+    padding:10px 18px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+    background:black;
+    color:white;
+}
+
+/* MOBILE MENU ICON */
+.menu-toggle{
+    display:none;
+    font-size:26px;
+    color:white;
+    cursor:pointer;
+}
+
+/* MOBILE DESIGN */
+@media(max-width:900px){
+
+    .header{
+        padding:12px 20px;
+    }
+
+    .nav{
+        position:absolute;
+        top:80px;
+        left:50%;
+        transform:translateX(-50%);
+        width:90%;
+        flex-direction:column;
+        background: rgba(0,0,0,0.9);
+        border-radius:10px;
+
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s;
+    }
+
+    .nav.active{
+        max-height:300px;
+        padding:20px 0;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .contact-btn{
+        display:none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HERO SECTION */
+.hero1{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:100px 8%;
+    color:white;
+    position:relative;
+
+    background:
+    linear-gradient(rgba(0,80,0,0.65), rgba(0,80,0,0.65)),
+    url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') center/cover no-repeat;
+}
+
+/* LEFT SMALL IMAGE */
+.left-img1{
+    position:absolute;
+    top:120px;
+    left:60px;
+}
+
+.left-img1 img{
+    width:130px;
+    height:160px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+/* CONTENT */
+.content1{
+    max-width:500px;
+    margin-left:180px;
+}
+
+/* HEADING */
+.content1 h1{
+    font-size:48px;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:15px;
+}
+
+/* PARAGRAPH */
+.content1 p{
+    font-size:14px;
+    color:#e0e0e0;
+    margin-bottom:20px;
+}
+
+/* TRY TEXT */
+.try{
+    font-size:12px;
+    color:#ddd;
+}
+
+/* AGRICO */
+.brand{
+    font-size:32px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+/* BUTTON */
+.btn1{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#7ed957;
+    color:black;
+    font-size:20px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn1:hover{
+    transform:translateY(-5px) scale(1.1);
+}
+
+/* AWARD CIRCLE */
+.award{
+    position:absolute;
+    left:60px;
+    bottom:60px;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:12px;
+}
+
+/* RIGHT IMAGE */
+.right-img1 img{
+    width:380px;
+    border-radius:15px;
+}
+
+/* BACKGROUND SHAPE */
+.hero1::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:2px solid rgba(255,255,255,0.1);
+    border-radius:50%;
+    left:-100px;
+    bottom:-100px;
+}
+
+/* ANIMATION */
+.fade1{
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s;
+}
+
+.fade1.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .hero1{
+        flex-direction:column;
+        text-align:center;
+        padding:120px 20px;
+    }
+
+    .left-img1{
+        position:static;
+        margin-bottom:20px;
+    }
+
+    .content1{
+        margin-left:0;
+    }
+
+    .content1 h1{
+        font-size:32px;
+    }
+
+    .right-img1 img{
+        width:100%;
+        margin-top:30px;
+    }
+
+    .award{
+        display:none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION */
+.unique-section{
+    background:#fff;
+    padding:100px 8%;
+}
+
+/* CONTAINER */
+.unique-container{
+    display:flex;
+    justify-content:space-between;
+    gap:60px;
+}
+
+/* LEFT SIDE */
+.left-box{
+    max-width:400px;
+}
+
+/* BUTTON */
+.green-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:2px solid green;
+    padding:8px 15px;
+    border-radius:25px;
+    color:green;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.green-btn span{
+    color:black;
+}
+
+.green-btn:hover{
+    background:green;
+    color:white;
+}
+
+/* STATS */
+.stats{
+    margin-top:60px;
+    display:flex;
+    gap:50px;
+}
+
+.stat-item h2{
+    color:green;
+    font-size:28px;
+}
+
+.stat-item p{
+    font-size:13px;
+    color:#555;
+}
+
+/* RIGHT SIDE */
+.right-box{
+    max-width:500px;
+}
+
+/* BIG TEXT */
+.big-text{
+    font-size:20px;
+    color:#111;
+    margin-bottom:30px;
+    line-height:1.6;
+}
+
+/* USER IMAGES */
+.users{
+    display:flex;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.users img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:2px solid #fff;
+    margin-left:-10px;
+}
+
+.users img:first-child{
+    margin-left:0;
+}
+
+/* COMMENTS */
+.comment-text{
+    font-size:14px;
+    color:#555;
+}
+
+/* ANIMATION */
+.fade-in{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+
+.fade-in.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .unique-container{
+        flex-direction:column;
+    }
+
+    .stats{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .big-text{
+        font-size:18px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION */
+.services-sec{
+    background:#fff;
+    padding:100px 8%;
+}
+
+/* TOP AREA */
+.top-flex{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:50px;
+    gap:40px;
+}
+
+/* LEFT TITLE */
+.left-title h2{
+    font-size:32px;
+    color:#111;
+}
+
+.left-title span{
+    display:block;
+    font-weight:bold;
+}
+
+/* RIGHT TEXT */
+.right-text{
+    max-width:400px;
+    color:#555;
+    line-height:1.6;
+}
+
+/* BUTTONS */
+.controls{
+    margin-top:20px;
+    display:flex;
+    gap:15px;
+}
+
+.circle-btn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:2px solid #ccc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.circle-btn span{
+    font-size:18px;
+    color:black;
+}
+
+/* ACTIVE */
+.circle-btn.active{
+    background:green;
+    border-color:green;
+}
+
+.circle-btn.active span{
+    color:white;
+}
+
+/* SLIDER */
+.slider{
+    overflow:hidden;
+}
+
+.slide-track{
+    display:flex;
+    gap:20px;
+    transition:0.5s ease;
+}
+
+/* CARD */
+.card{
+    min-width:250px;
+    background:#f9f9f9;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+}
+
+/* IMAGE */
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+/* OVERLAY ARROW */
+.card::after{
+    content:'➜';
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:white;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* TEXT */
+.card-content{
+    padding:15px;
+}
+
+.card-content h4{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.card-content p{
+    font-size:13px;
+    color:#555;
+}
+
+/* VIEW MORE */
+.view-more{
+    margin-top:40px;
+    text-align:center;
+}
+
+.view-more a{
+    background:green;
+    color:white;
+    padding:12px 30px;
+    border-radius:25px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.view-more a:hover{
+    background:black;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .top-flex{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .slide-track{
+        gap:15px;
+    }
+
+    .card{
+        min-width:80%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION */
+.fp-section{
+    background:#fff;
+    padding:100px 8%;
+    text-align:center;
+}
+
+/* HEADING */
+.fp-title{
+    font-size:34px;
+    font-weight:800;
+    color:#111;
+    margin-bottom:15px;
+}
+
+.fp-desc{
+    max-width:600px;
+    margin:auto;
+    color:#333;
+    margin-bottom:60px;
+}
+
+/* MAIN FLEX */
+.fp-wrapper{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    justify-content:center;
+}
+
+/* LEFT IMAGE */
+.fp-image img{
+    width:400px;
+    border-radius:10px;
+    height:450px;
+}
+
+/* RIGHT BOXES */
+.fp-cards{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+/* CARD COMMON */
+.fp-card{
+    display:flex;
+    align-items:flex-start;
+    gap:15px;
+    padding:20px;
+    border-radius:12px;
+    width:320px;
+    transition:0.3s;
+}
+
+/* GREEN CARD */
+.fp-card.primary{
+    background:#1e7d32;
+    color:#fff;
+}
+
+.fp-card.primary i{
+    color:#fff;
+}
+
+/* DARK CARDS */
+.fp-card.secondary{
+    background:#222;
+    color:#fff;
+}
+
+.fp-card.secondary i{
+    color:#000;
+    background:#fff;
+    border-radius:50%;
+    padding:8px;
+}
+
+/* ICON */
+.fp-card i{
+    font-style:normal;
+    font-size:18px;
+}
+
+/* TEXT */
+.fp-card h4{
+    margin-bottom:5px;
+}
+
+.fp-card p{
+    font-size:13px;
+    opacity:0.8;
+}
+
+/* HOVER */
+.fp-card:hover{
+    transform:translateY(-5px);
+}
+
+/* BUTTON */
+.fp-btn{
+    margin-top:40px;
+}
+
+.fp-btn a{
+    background:#000;
+    color:#fff;
+    padding:12px 30px;
+    text-decoration:none;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.fp-btn a:hover{
+    background:#1e7d32;
+}
+
+/* ANIMATION */
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+
+.fade-up.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .fp-wrapper{
+        flex-direction:column;
+    }
+
+    .fp-image img{
+        width:100%;
+    }
+
+    .fp-card{
+        width:100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN SECTION */
+.section4{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:60px 8%;
+  gap:40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* LEFT SIDE */
+.left{
+  flex:1;
+}
+
+.left h1{
+  font-size:36px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.left h2{
+  font-size:22px;
+  color:#444;
+}
+
+/* RIGHT SIDE */
+.right{
+  flex:1;
+}
+
+.right p{
+  font-size:16px;
+  line-height:1.6;
+  color:#555;
+  margin-bottom:25px;
+}
+
+/* IMAGES SECTION */
+.imagescol{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.card1{
+  text-align:center;
+  transition:0.3s;
+}
+
+.card1 img{
+  width:100%;
+  max-width:120px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card1:hover img{
+  transform:scale(1.05);
+}
+
+.card1 span{
+  display:block;
+  margin-top:8px;
+  font-weight:bold;
+}
+
+/* BUTTONS */
+.buttonscol{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.btn4{
+  padding:12px 15px;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+/* Button 1 - White */
+.btn7{
+  background:grey;
+  border:1px solid #000;
+}
+
+/* Button 2 - Grey */
+.btn2{
+  background:green;
+  color:#fff;
+}
+
+/* Button 3 - White with black text */
+.btn3{
+  background:grey;
+  color:#000;
+  border:1px solid #000;
+}
+
+/* HOVER */
+.btn1:hover{
+  transform:translateY(-3px);
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width:768px){
+
+  .section4{
+    flex-direction:column;
+    padding:30px 20px;
+  }
+
+  .imagescol{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .left h1{
+    font-size:28px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN SECTION */
+.glass{
+  padding:70px 10%;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* CENTER HEADING */
+.suraj h1{
+  font-size:34px;
+  margin-bottom:40px;
+  text-align:center;
+  font-weight:800;
+}
+
+/* CONTENT WRAPPER */
+.moon{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:50px;
+  width:100%;
+}
+
+/* LEFT SIDE TEXT */
+.stars{
+  flex:1;
+}
+
+.stars h2{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.stars p{
+  font-size:16px;
+  line-height:1.6;
+  color:#555;
+  margin-bottom:20px;
+}
+
+/* BUTTON */
+.air button{
+  padding:12px 22px;
+  background:green;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.air button:hover{
+  transform:translateY(-3px);
+  background:#0a7a0a;
+}
+
+/* RIGHT SIDE IMAGE */
+.cooling{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+
+.cooling img{
+  width:100%;
+  max-width:380px;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.cooling img:hover{
+  transform:scale(1.05);
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width:768px){
+
+  .moon{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .stars{
+    order:2;
+  }
+
+  .cooling{
+    order:1;
+  }
+
+  .suraj h1{
+    font-size:26px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION */
+.eleven {
+  position: relative;
+  height: 50vh;
+  background: url('health.jpg') no-repeat center/cover;
+  overflow: hidden;
+}
+
+/* OVERLAY */
+.twelve {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+/* HEADING */
+.thirteen {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* IMAGE WRAPPER */
+.fourteen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* IMAGE STYLE */
+.fifteen {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* HOVER EFFECT */
+.fifteen:hover {
+  transform: scale(1.3);
+  z-index: 10;
+  box-shadow: 0 20px 50px rgba(255,255,255,0.8);
+}
+
+/* LEFT CURVE (BOTTOM → TOP) */
+.sixteen { bottom: 5%; left: 5%; }
+.seventeen { bottom: 30%; left: 12%; }
+.eighteen { top: 20%; left: 20%; }
+
+/* CENTER TOP */
+.nineteen { top: 5%; left: 50%; transform: translateX(-50%); }
+
+/* RIGHT CURVE (TOP → BOTTOM) */
+.twenty:nth-of-type(5) { top: 20%; right: 20%; }
+.twenty:nth-of-type(6) { bottom: 30%; right: 12%; }
+.twenty:nth-of-type(7) { bottom: 5%; right: 5%; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .fifteen {
+    width: 70px;
+    height: 70px;
+  }
+
+  .thirteen {
+    font-size: 24px;
+  }
+
+  /* Adjust curve for mobile */
+  .sixteen { bottom: 5%; left: 5%; }
+  .seventeen { bottom: 25%; left: 20%; }
+  .eighteen { top: 25%; left: 25%; }
+
+  .nineteen { top: 5%; left: 50%; }
+
+  .twenty:nth-of-type(5) { top: 25%; right: 25%; }
+  .twenty:nth-of-type(6) { bottom: 25%; right: 20%; }
+  .twenty:nth-of-type(7) { bottom: 5%; right: 5%; }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SECTION */
+.twentyone {
+  background: #fff;
+  padding: 80px 40px;
+}
+
+/* HEADING */
+.twentytwo {
+  color: #000;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* ROW CONTAINER */
+.twentythree {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.twentyfour {
+  width: 300px;
+  text-align: center;
+  transition: 0.4s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* IMAGE */
+.twentyfive {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.4s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* HEIGHT VARIATION */
+.small {
+  height: 180px;
+}
+
+.medium {
+  height: 260px;
+}
+
+.small2 {
+  height: 180px;
+}
+
+/* TEXT */
+.twentyfour p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* HOVER */
+.twentyfour:hover .twentyfive {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* ANIMATION ACTIVE */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .twentythree {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .twentyfour {
+    width: 90%;
+  }
+
+  .twentytwo {
+    text-align: center;
+    font-size: 26px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HERO SECTION */
+.thirtyone {
+  height: 80vh;
+  background: url('rural.jpg') no-repeat center/cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thirtytwo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.thirtythree {
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.thirtythree h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.thirtyfour {
+  padding: 12px 25px;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.thirtyfour:hover {
+  background: #2e7d32;
+}
+
+/* ABOUT SECTION */
+.thirtyfive {
+  padding: 80px 40px;
+}
+
+.thirtysix {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.6s;
+}
+
+/* REVERSE */
+.thirtyseven {
+  flex-direction: row-reverse;
+}
+
+/* IMAGE */
+.thirtyeight {
+  width: 50%;
+}
+
+.thirtyeight img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* TEXT */
+.thirtynine {
+  width: 50%;
+}
+
+.thirtynine h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.thirtynine p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.forty {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.forty:hover {
+  background: #4CAF50;
+}
+
+/* ACTIVE ANIMATION */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .thirtysix {
+    flex-direction: column;
+  }
+
+  .thirtyseven {
+    flex-direction: column;
+  }
+
+  .thirtyeight, .thirtynine {
+    width: 100%;
+  }
+
+  .thirtythree h1 {
+    font-size: 30px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== CONTAINER ===== */
+.agri-container{
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+}
+
+/* ===== COMMON SECTION STYLE ===== */
+.section-box{
+    padding:25px;
+    margin:20px 0;
+    border-radius:15px;
+    color:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.4s;
+}
+
+.section-box:hover{
+    transform:translateY(-5px);
+}
+
+/* ===== DIFFERENT COLORS ===== */
+.fifty-one{background:linear-gradient(135deg,#2e7d32,#66bb6a);}
+.fifty-two{background:linear-gradient(135deg,#1565c0,#42a5f5);}
+.fifty-three{background:linear-gradient(135deg,#ef6c00,#ffb74d);}
+.fifty-four{background:linear-gradient(135deg,#6a1b9a,#ba68c8);}
+
+/* ===== TEXT STYLE ===== */
+.section-box h2{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.section-box p{
+    font-size:15px;
+    line-height:1.6;
+    opacity:0.95;
+}
+
+/* ===== GRID ===== */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-box h2{
+        font-size:22px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HERO SECTION */
+.hero61{
+    height:60vh;
+    background:url("health.jpg") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.hero61 h1{
+    font-size:40px;
+    background:rgba(0,0,0,0.5);
+    padding:15px 25px;
+    border-radius:10px;
+}
+
+/* SECTION WRAPPER */
+.container61{
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+}
+
+/* PRODUCT SECTION */
+.section{
+    margin:30px 0;
+    padding:20px;
+    border-radius:15px;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    transition:0.3s;
+}
+
+.section:hover{
+    transform:scale(1.02);
+}
+
+/* Different Themes */
+.fertilizer61{ background:linear-gradient(135deg,#2e7d32,#66bb6a); }
+.seeds{ background:linear-gradient(135deg,#ef6c00,#ffb74d); }
+.tools{ background:linear-gradient(135deg,#1565c0,#42a5f5); }
+
+/* TEXT */
+.section-text61{
+    flex:1;
+    min-width:250px;
+    padding:20px;
+}
+
+.section-text61 h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.section-text61 p{
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* IMAGE */
+.section img{
+    width:250px;
+    border-radius:10px;
+    margin:10px;
+}
+
+/* BUTTON */
+.btn61{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    background:white;
+    color:black;
+    border-radius:5px;
+    cursor:pointer;
+    border:none;
+    transition:0.3s;
+}
+
+.btn61:hover{
+    background: #4CAF50;
+    color:white;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width:768px){
+    .hero61 h1{
+        font-size:25px;
+    }
+
+    .section{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .section img{
+        width:100%;
+        max-width:300px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== MAIN SECTION ===== */
+.agri_contact_zone {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: url('happy.webp') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 40px 20px;
+}
+
+/* Dark overlay */
+.agri_contact_zone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
+}
+
+/* ===== ROTATING CIRCLE ANIMATION ===== */
+.spin_black_orbit {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 2px dashed rgba(0,0,0,0.6);
+    animation: rotateCircle 10s linear infinite;
+    z-index: 2;
+}
+
+.spin_black_orbit::after {
+    content: "";
+    position: absolute;
+    inset: 25px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.4);
+}
+
+@keyframes rotateCircle {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== CONTACT CARD ===== */
+.contact_glass_card {
+    position: relative;
+    z-index: 3;
+    width: 420px;
+    max-width: 100%;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    color: #fff;
+}
+
+/* Heading */
+.contact_title_main {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Inputs */
+.field_box_input {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.field_box_input input,
+.field_box_input textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* Button */
+.submit_btn_agri {
+    width: 100%;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit_btn_agri:hover {
+    background: #4CAF50;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+
+    .contact_glass_card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .spin_black_orbit {
+        width: 220px;
+        height: 220px;
+    }
+
+    .contact_title_main {
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== HEADER SECTION ===== */
+.footer-top-section {
+    background: #1f8a3b;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.footer-top-section h2 {
+    color: #fff;
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* GREEN LINE */
+.footer-line {
+    width: 100%;
+    height: 3px;
+    background: #1f8a3b;
+}
+
+/* ===== MAIN FOOTER ===== */
+.main-footer-wrapper {
+    background: #ffffff;
+    padding: 50px 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* ABOUT SECTION */
+.about_block {
+    flex: 1;
+    min-width: 250px;
+}
+
+.about_block h3 {
+    color: #1f8a3b;
+    margin-bottom: 10px;
+}
+
+.about_block p {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* CONTACT SECTION */
+.contact_block {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact_block h3 {
+    color: #1f8a3b;
+    margin-bottom: 10px;
+}
+
+.contact_block p {
+    color: #444;
+    line-height: 1.8;
+}
+
+/* AGRICULTURE INFO */
+.agri_block {
+    flex: 1;
+    min-width: 250px;
+}
+
+.agri_block h3 {
+    color: #1f8a3b;
+    margin-bottom: 10px;
+}
+
+.agri_block p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer_bottom_bar {
+    text-align: center;
+    padding: 15px;
+    background: #1f8a3b;
+    color: white;
+    font-size: 14px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+
+    .main-footer-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-top-section h2 {
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="header-wrapper">
+
+<header class="header">
+
+    <!-- LOGO -->
+    <div class="logo">
+        <img src="preview.png">
+        <span>AgriCo</span>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav" id="navMenu">
+        <a href="#">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#culture">Agriculture</a>
+        <a href="#product">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- RIGHT BUTTON -->
+    <a href="#" class="contact-btn">Contact Us</a>
+
+    <!-- MOBILE ICON -->
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
+
+</header>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="hero1">
+
+    <!-- LEFT IMAGE -->
+    <div class="left-img1 fade1">
+        <img src="fresh.jpg">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content1 fade1">
+        <h1>GROW SMARTER<br>FARM BETTER</h1>
+
+        <p>
+            Empowering farmers with smart tools and modern
+            techniques to boost productivity and sustainability.
+        </p>
+
+        <div class="try">Try</div>
+        <div class="brand">Agrico</div>
+
+        <a href="#" class="btn1">↗</a>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="right-img1 fade1">
+        <img src="lush.jpg">
+    </div>
+
+    <!-- AWARD -->
+    <div class="award">
+        25+<br>Awards<br>Won
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="unique-section">
+
+<div class="unique-container">
+
+    <!-- LEFT SIDE -->
+    <div class="left-box fade-in">
+
+        <div class="green-btn">
+            <span>➜</span> Modern Organization
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-item">
+                <h2>100K</h2>
+                <p>Platform services currently</p>
+            </div>
+
+            <div class="stat-item">
+                <h2>35+</h2>
+                <p>Years of experiences</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-box fade-in">
+
+        <div class="big-text">
+            If you are starting your journey in agriculture or improving your current
+            farming system, our modern solutions provide the best tools and insights
+            to grow faster and smarter in today’s competitive environment.
+        </div>
+
+        <!-- USERS -->
+        <div class="users">
+            <img src="https://randomuser.me/api/portraits/men/1.jpg">
+            <img src="https://randomuser.me/api/portraits/women/2.jpg">
+            <img src="https://randomuser.me/api/portraits/men/3.jpg">
+            <img src="https://randomuser.me/api/portraits/women/4.jpg">
+            <img src="https://randomuser.me/api/portraits/men/5.jpg">
+        </div>
+
+        <!-- COMMENT -->
+        <div class="comment-text">
+            “This platform completely transformed how we manage our farms.
+            The tools are easy to use and highly effective!”
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="services-sec">
+
+<!-- TOP -->
+<div class="top-flex">
+
+    <!-- LEFT -->
+    <div class="left-title">
+        <h2>Our Services <span>& Solutions</span></h2>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-text">
+        We provide modern agriculture solutions to improve productivity,
+        efficiency and sustainability. Explore our wide range of services
+        designed for smart farming.
+        
+        <div class="controls">
+            <div class="circle-btn active" id="prevBtn"><span>←</span></div>
+            <div class="circle-btn" id="nextBtn"><span>→</span></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+    <div class="slide-track" id="track">
+
+        <!-- CARD -->
+        <div class="card">
+            <img src="fresh.jpg">
+            <div class="card-content">
+                <h4>Smart Farming</h4>
+                <p>Advanced tools for modern agriculture.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="plant.jpg">
+            <div class="card-content">
+                <h4>Crop Monitoring</h4>
+                <p>Track your crops in real-time.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="leeks.jpg">
+            <div class="card-content">
+                <h4>Soil Analysis</h4>
+                <p>Better soil for better yield.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="health.jpg">
+            <div class="card-content">
+                <h4>Irrigation</h4>
+                <p>Efficient water systems.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="rural.jpg">
+            <div class="card-content">
+                <h4>Agri Tech</h4>
+                <p>Technology driven farming.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- VIEW MORE -->
+<div class="view-more">
+    <a href="#">View More</a>
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="fp-section">
+
+    <!-- HEADING -->
+    <h2 class="fp-title fade-up">Featured Products</h2>
+    <p class="fp-desc fade-up">
+        Discover our latest agriculture products designed to improve efficiency,
+        boost productivity and support modern smart farming solutions.
+    </p>
+
+    <!-- CONTENT -->
+    <div class="fp-wrapper">
+
+        <!-- LEFT IMAGE -->
+        <div class="fp-image fade-up">
+            <img src="happy.webp">
+        </div>
+
+        <!-- RIGHT CARDS -->
+        <div class="fp-cards">
+
+            <!-- GREEN BOX -->
+            <div class="fp-card primary fade-up">
+                <i>🌱</i>
+                <div>
+                    <h4>Organic Farming</h4>
+                    <p>Eco-friendly farming solutions for better crops.</p>
+                </div>
+            </div>
+
+            <!-- BOX 2 -->
+            <div class="fp-card secondary fade-up">
+                <i>🚜</i>
+                <div>
+                    <h4>Modern Equipment</h4>
+                    <p>Advanced tools for efficient agriculture work.</p>
+                </div>
+            </div>
+
+            <!-- BOX 3 -->
+            <div class="fp-card secondary fade-up">
+                <i>💧</i>
+                <div>
+                    <h4>Irrigation System</h4>
+                    <p>Smart water management for farms.</p>
+                </div>
+            </div>
+
+            <!-- BOX 4 -->
+            <div class="fp-card secondary fade-up">
+                <i>🌾</i>
+                <div>
+                    <h4>Crop Monitoring</h4>
+                    <p>Track growth and improve productivity.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="fp-btn fade-up">
+        <a href="#">View More</a>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section4">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <h1>Smart Farming <br>Solutions</h1>
+    
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+
+    <p>
+      Smart farming solutions help modern agriculture by using advanced technology,
+      automation, and data-driven systems. These tools increase productivity,
+      reduce waste, and improve crop quality for better future farming.
+    </p>
+
+    <!-- IMAGES -->
+    <div class="imagescol">
+
+      <div class="card1">
+        <img src="fresh.jpg" alt="img1">
+        <span>Crop Care</span>
+      </div>
+
+      <div class="card1">
+        <img src="happy.webp" alt="img2">
+        <span>Smart Irrigation</span>
+      </div>
+
+      <div class="card1">
+        <img src="lush.jpg" alt="img3">
+        <span>Soil Analysis</span>
+      </div>
+
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttonscol">
+
+      <button class="btn4 btn7">
+        <i class="fa-solid fa-leaf"></i> Learn More
+      </button>
+
+      <button class="btn4 btn2">
+        <i class="fa-solid fa-tracter"></i> Explore Farming
+      </button>
+
+      <button class="btn4 btn3">
+        <i class="fa-solid fa-seedling"></i> Get Started
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SECTION -->
+<section class="glass">
+
+  <!-- CENTER HEADING -->
+  <div class="suraj">
+    <h1>What Farmers Are Sensing</h1>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="moon">
+
+    <!-- LEFT SIDE -->
+    <div class="stars">
+      <h2>Farmers Insight</h2>
+      <p>
+        Farmers are adopting modern agricultural techniques and smart chemical usage
+        to improve crop quality and productivity. Proper use of fertilizers and
+        eco-friendly solutions ensures better soil health and sustainable farming
+        for the future generation.
+      </p>
+
+      <div class="air">
+        <button>View More</button>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="cooling">
+      <img src="down.jpeg" alt="Agriculture">
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="eleven">
+
+  <div class="twelve"></div>
+
+  <div class="fourteen">
+
+    <!-- LEFT SIDE -->
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" class="fifteen sixteen">
+    <img src="https://images.unsplash.com/photo-1492496913980-501348b61469" class="fifteen seventeen">
+    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" class="fifteen eighteen">
+
+    <!-- CENTER TOP -->
+    <img src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf" class="fifteen nineteen">
+
+    <!-- RIGHT SIDE -->
+    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30" class="fifteen twenty">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9" class="fifteen twenty">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="fifteen twenty">
+
+  </div>
+
+  <h2 class="thirteen">Farm Gallery</h2>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="twentyone">
+
+  <h2 class="twentytwo">Latest Blog Posts</h2>
+
+  <div class="twentythree">
+
+    <!-- IMAGE 1 (SMALL) -->
+    <div class="twentyfour">
+      <img src="fresh.jpg" class="twentyfive small">
+      <p>
+        Learn about modern agriculture methods that improve crop yield and efficiency using smart techniques.
+      </p>
+    </div>
+
+    <!-- IMAGE 2 (TALL) -->
+    <div class="twentyfour">
+      <img src="leeks.jpg" class="twentyfive medium">
+      <p>
+        Discover how smart farming is transforming the agricultural industry with advanced technologies.
+      </p>
+    </div>
+
+    <!-- IMAGE 3 (SMALL) -->
+    <div class="twentyfour">
+      <img src="plant.jpg" class="twentyfive small2">
+      <p>
+        Explore eco-friendly farming solutions that help preserve nature while boosting productivity.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- HERO -->
+<section class="thirtyone" id="about">
+  <div class="thirtytwo"></div>
+  <div class="thirtythree">
+    <h1>Modern Agriculture</h1>
+    <p>Innovating farming for a sustainable future</p>
+    <button class="thirtyfour">Explore More</button>
+  </div>
+</section>
+
+<!-- ABOUT 1 -->
+<section class="thirtyfive">
+  <div class="thirtysix">
+    <div class="thirtyeight">
+      <img src="imag.jpeg">
+    </div>
+    <div class="thirtynine">
+      <h2>Smart Farming</h2>
+      <p>
+        Smart farming uses modern technology like IoT and AI to improve crop yield and reduce waste.
+        It helps farmers make better <br>decisions and optimize resources efficiently."Write a detailed and engaging explanation about smart farming in agriculture.<br> 
+        Describe how modern technologies such as IoT, sensors, drones, artificial intelligence, and data analytics are used to <br>
+        improve farming efficiency and productivity. Explain the benefits of smart farming, including better crop <br>
+        management, resource optimization, reduced environmental impact, and increased yield. Keep the<br> 
+        tone informative, modern, and easy to understand."
+      </p>
+      <button class="forty">Read More</button>
+    </div>
+  </div>
+
+  <!-- ABOUT 2 -->
+  <div class="thirtysix thirtyseven">
+    <div class="thirtyeight">
+      <img src="fresh.jpg">
+    </div>
+    <div class="thirtynine">
+      <h2>Organic Agriculture</h2>
+      <p>
+        Organic farming focuses on natural processes and avoids harmful chemicals,
+        ensuring healthier food and <br>environmental sustainability."Write a comprehensive and engaging overview of organic agriculture. <br>
+        Explain what organic farming is, its principles, and how it differs from conventional farming. Include key <br>
+        practices such as natural fertilizers, crop rotation, composting, and pest control without chemicals. Highlight<br> 
+        the environmental, health, and economic benefits of organic agriculture, and discuss its importance <br>
+        for sustainable food production."
+      </p>
+      <button class="forty">Read More</button>
+    </div>
+  </div>
+
+  <!-- ABOUT 3 -->
+  <div class="thirtysix">
+    <div class="thirtyeight">
+      <img src="load.jpeg">
+    </div>
+    <div class="thirtynine">
+      <h2>Sustainable Practices</h2>
+      <p>
+        Sustainable agriculture ensures long-term productivity by conserving soil,
+        water, and biodiversity for future generations.<br>"Write a detailed and engaging explanation about sustainable practices in agriculture. Include key methods such as crop <br>
+        rotation, organic farming, water conservation, soil health management, and the use of modern eco-friendly technologies. <br>
+        Explain their benefits for the environment, farmers, and future food security. Keep the tone informative yet <br>
+        easy to understand."
+      </p>
+      <button class="forty">Read More</button>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="agri-container" id="culture">
+
+    <div class="grid">
+
+        <!-- SECTION 51 -->
+        <div class="section-box fifty-one">
+            <h2>Modern Farming Techniques</h2>
+            <p>
+                Modern agriculture uses advanced machinery, smart irrigation systems and AI-based monitoring
+                to improve crop yield and reduce labor cost. These techniques help farmers produce more in less time.
+            </p>
+        </div>
+
+        <!-- SECTION 52 -->
+        <div class="section-box fifty-two">
+            <h2>Organic Agriculture</h2>
+            <p>
+                Organic farming focuses on natural fertilizers, crop rotation and avoiding harmful chemicals.
+                It improves soil health and produces healthier food for consumers.
+            </p>
+        </div>
+
+        <!-- SECTION 53 -->
+        <div class="section-box fifty-three">
+            <h2>Smart Irrigation System</h2>
+            <p>
+                Smart irrigation uses sensors and automation to supply water only when needed.
+                This helps save water and increases crop efficiency in dry regions.
+            </p>
+        </div>
+
+        <!-- SECTION 54 -->
+        <div class="section-box fifty-four">
+            <h2>Crop Protection & Growth</h2>
+            <p>
+                Advanced pesticides, pest control methods and monitoring systems protect crops from disease
+                and ensure healthy growth throughout the season.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- HERO -->
+<div class="hero61" id="product">
+    <h1>Smart Agriculture Products System</h1>
+</div>
+
+<div class="container61">
+
+    <!-- SECTION 1 -->
+    <div class="section fertilizer61">
+        <div class="section-text61">
+            <h2>Organic Fertilizers</h2>
+            <p>High quality organic fertilizers that increase soil fertility and boost crop production naturally.</p>
+            <button class="btn61" onclick="showAlert('Fertilizers61')">View Details</button>
+        </div>
+        <img src="down.jpeg" />
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section seeds">
+        <div class="section-text61">
+            <h2>Hybrid Seeds</h2>
+            <p>Best hybrid seeds for wheat, rice and vegetables with high yield and disease resistance.</p>
+            <button class="btn61" onclick="showAlert('Seeds')">View Details</button>
+        </div>
+        <img src="load.jpeg" />
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="section tools">
+        <div class="section-text61">
+            <h2>Modern Farming Tools</h2>
+            <p>Advanced farming equipment to improve productivity and reduce manual labor.</p>
+            <button class="btn61" onclick="showAlert('Tools')">View Details</button>
+        </div>
+        <img src="lush.jpg" />
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="agri_contact_zone" id="contact">
+
+    <!-- rotating circle -->
+    <div class="spin_black_orbit"></div>
+
+    <!-- contact box -->
+    <div class="contact_glass_card">
+
+        <div class="contact_title_main">Contact Us</div>
+
+        <div class="field_box_input">
+            <input type="text" placeholder="Your Name">
+        </div>
+
+        <div class="field_box_input">
+            <input type="email" placeholder="Your Email">
+        </div>
+
+        <div class="field_box_input">
+            <textarea rows="4" placeholder="Your Message"></textarea>
+        </div>
+
+        <button class="submit_btn_agri">Send Message</button>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== GET IN TOUCH HEADER ===== -->
+<div class="footer-top-section">
+    <h2>GET IN TOUCH</h2>
+</div>
+
+<!-- GREEN LINE -->
+<div class="footer-line"></div>
+
+<!-- ===== FOOTER CONTENT ===== -->
+<div class="main-footer-wrapper">
+
+    <div class="about_block">
+        <h3>About Us</h3>
+        <p>
+            We are dedicated to modern agriculture solutions that help farmers
+            improve productivity and sustainability using advanced techniques
+            and smart farming systems.
+        </p>
+    </div>
+
+    <div class="contact_block">
+        <h3>Contact Us</h3>
+        <p>
+            Email: info@agriculture.com <br>
+            Phone: +92 371 1498130 <br>
+            Address: Karachi, Pakistan, Burewala
+        </p>
+    </div>
+
+    <div class="agri_block">
+        <h3>Agriculture</h3>
+        <p>
+            Agriculture is the backbone of our economy. We support farmers with
+            innovative tools, organic farming methods, and modern agricultural
+            technologies.
+        </p>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER BOTTOM ===== -->
+<div class="footer_bottom_bar">
+    © 2026 Agriculture Website | All Rights Reserved
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+/* MOBILE TOGGLE */
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", ()=>{
+    navMenu.classList.toggle("active");
+});
+
+/* SCROLL EFFECT */
+window.addEventListener("scroll", ()=>{
+    const header = document.querySelector(".header");
+
+    if(window.scrollY > 50){
+        header.style.background = "rgba(0,0,0,0.6)";
+    }else{
+        header.style.background = "rgba(255,255,255,0.08)";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SCROLL ANIMATION */
+const fadeEls = document.querySelectorAll('.fade1');
+
+window.addEventListener('scroll', ()=>{
+    fadeEls.forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ANIMATION ON SCROLL */
+const elements = document.querySelectorAll('.fade-in');
+
+window.addEventListener('scroll', ()=>{
+    elements.forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const track = document.getElementById('track');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let position = 0;
+
+nextBtn.onclick = () => {
+    position -= 270;
+    track.style.transform = `translateX(${position}px)`;
+
+    nextBtn.classList.add("active");
+    prevBtn.classList.remove("active");
+}
+
+prevBtn.onclick = () => {
+    position += 270;
+    track.style.transform = `translateX(${position}px)`;
+
+    prevBtn.classList.add("active");
+    nextBtn.classList.remove("active");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SCROLL ANIMATION */
+const items = document.querySelectorAll('.fade-up');
+
+window.addEventListener('scroll', ()=>{
+    items.forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// simple animation on scroll effect
+window.addEventListener("scroll", function(){
+  let section = document.querySelector(".section");
+  let position = section.getBoundingClientRect().top;
+  let screenPosition = window.innerHeight / 1.3;
+
+  if(position < screenPosition){
+    section.style.opacity = "1";
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// simple scroll animation effect
+window.addEventListener("scroll", function(){
+  let section = document.querySelector(".glass");
+  let position = section.getBoundingClientRect().top;
+  let screenHeight = window.innerHeight;
+
+  if(position < screenHeight - 100){
+    section.style.opacity = "1";
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hover focus animation
+const imgs = document.querySelectorAll('.fifteen');
+
+imgs.forEach(img => {
+  img.addEventListener('mouseenter', () => {
+    imgs.forEach(i => i.style.opacity = "0.3");
+    img.style.opacity = "1";
+  });
+
+  img.addEventListener('mouseleave', () => {
+    imgs.forEach(i => i.style.opacity = "1");
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SCROLL ANIMATION
+const cards = document.querySelectorAll('.twentyfour');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    const screen = window.innerHeight;
+
+    if (top < screen - 100) {
+      card.classList.add('show');
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SCROLL ANIMATION
+const sections = document.querySelectorAll('.thirtysix');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const pos = sec.getBoundingClientRect().top;
+    const screen = window.innerHeight;
+
+    if (pos < screen - 100) {
+      sec.classList.add('show');
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Simple animation on scroll
+const boxes = document.querySelectorAll(".section-box");
+
+window.addEventListener("scroll", () => {
+    boxes.forEach(box => {
+        const rect = box.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100){
+            box.style.opacity = "1";
+            box.style.transform = "translateY(0)";
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showAlert(type){
+    alert(type + " section opened successfully!");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Simple JS interaction (optional enhancement)
+document.querySelector(".footer-top-section").addEventListener("click", function(){
+    console.log("Get in Touch section clicked!");
+});
+
+
+
+
+</script>
+
+</body>
+</html>
